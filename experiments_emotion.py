@@ -103,12 +103,12 @@ classifierModel.to("cuda")
 # LANGUAGE MODEL - Modify
 
 print("loading GPT model")
-model_path = "C:/Users/mates/OneDrive/Documentos/RML/PPL-MCTS/PPL-MCTS/placeholder/models--ashiqabdulkhader--GPT2-Poet/snapshots/8b6897547c51670057f4653f51f10abe66811ddc"
+model_path = "./models/GPT2-Fine-tuned/snapshot/8b6897547c51670057f4653f51f10abe66811ddc"
 gpt = GPT2LMHeadModel.from_pretrained(model_path, from_tf=True)
 # pdb.set_trace()
 gpt.eval()
 gpt.to("cuda")
-tokenizer_gpt = GPT2Tokenizer.from_pretrained("ashiqabdulkhader/GPT2-Poet")
+tokenizer_gpt = GPT2Tokenizer.from_pretrained("./GPT2-Fine-tuned")
 tokenizer_gpt.padding_side = "left"
 tokenizer_gpt.pad_token = tokenizer_gpt.eos_token
 eos_token_id = gpt.config.eos_token_id
